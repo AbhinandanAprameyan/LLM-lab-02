@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 
 def load_config() -> dict:
     """
@@ -12,5 +14,8 @@ def load_config() -> dict:
     - OPENAI_API_KEY
     - OPENAI_MODEL
     """
-    # TODO: implement this function.
-    raise NotImplementedError("Implement load_config().")
+    return {
+        "LLM_PROVIDER": os.environ.get("LLM_PROVIDER", "mock"),
+        "OPENAI_API_KEY": os.environ.get("OPENAI_API_KEY", ""),
+        "OPENAI_MODEL": os.environ.get("OPENAI_MODEL", ""),
+    }
